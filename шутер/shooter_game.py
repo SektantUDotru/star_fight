@@ -41,7 +41,10 @@ class Hero(GameSprite):
 
 class Enemy(GameSprite):
     def update(self):
-        self.rect.y += 1
+        keys = key.get_pressed()
+        if not keys[K_KP6]:
+            self.rect.y += randint(-1,10)
+            self.rect.x += randint(-1,1)
         if self.rect.y > 500:
             self.rect.y = -150
         
